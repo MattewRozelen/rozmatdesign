@@ -87,5 +87,19 @@
 </main>
 
 <footer>© 2025 Matviy Rozlutskyy · ONE DESIGN by MatRoz</footer>
+ 
+ <script>
+  const lang = localStorage.getItem('matroz-lang') || 'EN';
+  const key  = 'data-' + lang.toLowerCase();
+
+  // update the lang button label if it exists on this page
+  const btn = document.getElementById('langBtn');
+  if (btn) btn.textContent = lang;
+
+  // swap every element that has a translation attribute
+  document.querySelectorAll('[' + key + ']').forEach(el => {
+    el.textContent = el.getAttribute(key);
+  });
+</script>
 </body>
 </html>
